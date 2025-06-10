@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Random Password Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="app">
+    <h1>Random Password Generator</h1>
+
+    <div class="row">
+      <label>
+        Mode:
+        <select id="mode">
+          <option value="gibberish">Gibberish</option>
+          <option value="wordlist">Passphrase</option>
+        </select>
+      </label>
+
+      <label>
+        Length:
+        <input type="number" id="length" min="4" max="64" value="16">
+      </label>
+    </div>
+
+    <div class="options" id="gib-options">
+      <label><input type="checkbox" id="upper" checked> Uppercase</label>
+      <label><input type="checkbox" id="lower" checked> Lowercase</label>
+      <label><input type="checkbox" id="numbers" checked> Numbers</label>
+      <label><input type="checkbox" id="symbols" checked> Symbols</label>
+    </div>
+
+    <div class="options" id="phrase-options">
+      <label><input type="checkbox" id="includeSymbolsInPhrase"> Include Symbols</label>
+    </div>
+
+    <button id="generate">Generate</button>
+
+    <div class="output">
+      <input type="text" id="password" readonly placeholder="Your new password">
+      <button id="copy">Copy</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

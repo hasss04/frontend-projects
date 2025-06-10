@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FrontEnd Projects</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f2f5;
+      position: relative;
+      padding: 1rem;
+    }
+
+    .github-link {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .github-link img {
+      width: 32px;
+      height: 32px;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .buttons a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      background: #007bff;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .buttons a:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .buttons a {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+      }
+
+      /* Shrink and reposition GitHub icon */
+      .github-link {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+      .github-link img {
+        width: 24px;
+        height: 24px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="github-link" href="https://github.com/hasss04" target="_blank" rel="noopener">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+  </a>
+  <h1>My FrontEnd Projects</h1>
+  <div class="buttons">
+    <a href="./TODO_LIST/" target="_blank">To-Do List</a>
+    <a href="./CLOCK/"     target="_blank">Digital Clock</a>
+    <a href="./WHITEBOARD/"     target="_blank">Whiteboard</a>
+     <a href="./PASSWORD_GENERATOR/"     target="_blank">Password Generator</a>
+  </div>
+</body>
+</html>

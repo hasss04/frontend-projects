@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="controls">
+    <button id="fs-btn">View Full Screen</button>
+
+    <label>
+      Time Format:
+      <select id="format-select">
+        <option value="24">24-Hour</option>
+        <option value="12">12-Hour</option>
+      </select>
+    </label>
+
+    <label>
+      Secondary Clock:
+      <select id="zone-select">
+        <option value="">— none —</option>
+
+        <!-- UTC -->
+        <option value="UTC">UTC</option>
+
+        <!-- North America -->
+        <optgroup label="North America">
+          <option value="America/St_Johns">St. John’s (NL)</option>
+          <option value="America/Halifax">Halifax</option>
+          <option value="America/New_York">New York</option>
+          <option value="America/Detroit">Detroit</option>
+          <option value="America/Toronto">Toronto</option>
+          <option value="America/Chicago">Chicago</option>
+          <option value="America/Winnipeg">Winnipeg</option>
+          <option value="America/Denver">Denver</option>
+          <option value="America/Edmonton">Edmonton</option>
+          <option value="America/Phoenix">Phoenix</option>
+          <option value="America/Los_Angeles">Los Angeles</option>
+          <option value="America/Vancouver">Vancouver</option>
+          <option value="America/Mexico_City">Mexico City</option>
+          <option value="America/Costa_Rica">San José (CR)</option>
+        </optgroup>
+
+        <!-- Central & South America -->
+        <optgroup label="Central & South America">
+          <option value="America/Bogota">Bogotá</option>
+          <option value="America/Lima">Lima</option>
+          <option value="America/Sao_Paulo">São Paulo</option>
+          <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>
+          <option value="America/Caracas">Caracas</option>
+          <option value="America/Santiago">Santiago</option>
+          <option value="America/La_Paz">La Paz</option>
+          <option value="America/Montevideo">Montevideo</option>
+          <option value="America/Puerto_Rico">San Juan</option>
+        </optgroup>
+
+        <!-- Canada -->
+        <optgroup label="Canada">
+          <option value="America/St_Johns">St. John’s (NL)</option>
+          <option value="America/Halifax">Halifax (NS)</option>
+          <option value="America/Toronto">Toronto (ON)</option>
+          <option value="America/Winnipeg">Winnipeg (MB)</option>
+          <option value="America/Edmonton">Edmonton (AB)</option>
+          <option value="America/Vancouver">Vancouver (BC)</option>
+        </optgroup>
+
+        <!-- Europe -->
+        <optgroup label="Europe">
+          <option value="Europe/Dublin">Dublin</option>
+          <option value="Europe/London">London</option>
+          <option value="Europe/Lisbon">Lisbon</option>
+          <option value="Europe/Amsterdam">Amsterdam</option>
+          <option value="Europe/Paris">Paris</option>
+          <option value="Europe/Berlin">Berlin</option>
+          <option value="Europe/Zurich">Zurich</option>
+          <option value="Europe/Madrid">Madrid</option>
+          <option value="Europe/Rome">Rome</option>
+          <option value="Europe/Prague">Prague</option>
+          <option value="Europe/Warsaw">Warsaw</option>
+          <option value="Europe/Vienna">Vienna</option>
+          <option value="Europe/Bucharest">Bucharest</option>
+          <option value="Europe/Moscow">Moscow</option>
+          <option value="Europe/Istanbul">Istanbul</option>
+        </optgroup>
+
+        <!-- Africa -->
+        <optgroup label="Africa">
+          <option value="Africa/Casablanca">Casablanca</option>
+          <option value="Africa/Algiers">Algiers</option>
+          <option value="Africa/Tunis">Tunis</option>
+          <option value="Africa/Lagos">Lagos</option>
+          <option value="Africa/Cairo">Cairo</option>
+          <option value="Africa/Nairobi">Nairobi</option>
+          <option value="Africa/Johannesburg">Johannesburg</option>
+        </optgroup>
+
+        <!-- Middle East -->
+        <optgroup label="Middle East">
+          <option value="Asia/Jerusalem">Jerusalem</option>
+          <option value="Asia/Amman">Amman</option>
+          <option value="Asia/Beirut">Beirut</option>
+          <option value="Asia/Dubai">Dubai</option>
+          <option value="Asia/Qatar">Doha</option>
+          <option value="Asia/Riyadh">Riyadh</option>
+        </optgroup>
+
+        <!-- South Asia -->
+        <optgroup label="South Asia">
+          <option value="Asia/Kolkata">Mumbai (Kolkata)</option>
+          <option value="Asia/Karachi">Karachi</option>
+          <option value="Asia/Dhaka">Dhaka</option>
+          <option value="Asia/Kathmandu">Kathmandu</option>
+          <option value="Asia/Colombo">Colombo</option>
+          <option value="Asia/Kuala_Lumpur">Kuala Lumpur (Malaysia)</option>
+        </optgroup>
+
+        <!-- East & Southeast Asia -->
+        <optgroup label="East & Southeast Asia">
+          <option value="Asia/Shanghai">Shanghai</option>
+          <option value="Asia/Hong_Kong">Hong Kong</option>
+          <option value="Asia/Tokyo">Tokyo</option>
+          <option value="Asia/Seoul">Seoul</option>
+          <option value="Asia/Singapore">Singapore</option>
+          <option value="Asia/Bangkok">Bangkok</option>
+          <option value="Asia/Jakarta">Jakarta</option>
+          <option value="Asia/Manila">Manila</option>
+        </optgroup>
+
+        <!-- Oceania & Pacific -->
+        <optgroup label="Oceania & Pacific">
+          <option value="Australia/Sydney">Sydney</option>
+          <option value="Australia/Melbourne">Melbourne</option>
+          <option value="Pacific/Guam">Guam</option>
+          <option value="Pacific/Port_Moresby">Port Moresby</option>
+          <option value="Pacific/Auckland">Auckland</option>
+          <option value="Pacific/Fiji">Fiji</option>
+          <option value="Pacific/Honolulu">Honolulu (HST)</option>
+        </optgroup>
+      </select>
+    </label>
+  </div>
+
+  <div class="clock-panel">
+    <div class="single-clock">
+      <div class="label">Local Time</div>
+      <div class="time" data-zone="local">00:00:00</div>
+      <div class="date" data-zone="local">Loading...</div>
+    </div>
+    <div class="single-clock" id="secondary" style="display:none">
+      <div class="label" id="secondary-label"></div>
+      <div class="time" data-zone=""></div>
+      <div class="date" data-zone=""></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
